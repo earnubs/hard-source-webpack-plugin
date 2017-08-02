@@ -43,6 +43,7 @@
     "bluebird": "^3.0.0",
     "level": "^1.4.0",
     "lodash": "^4.15.0",
+    "medea": "^1.0.3",
     "mkdirp": "^0.5.1",
     "node-object-hash": "^1.2.0",
     "source-list-map": "^0.1.6",
