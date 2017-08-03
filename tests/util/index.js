@@ -5,7 +5,7 @@ var vm = require('vm');
 var expect = require('chai').expect;
 var MemoryFS = require('memory-fs');
 
-var LevelDbSerializer = require('../../lib/cache-serializers').LevelDbSerializer;
+var MedeaDbSerializer = require('../../lib/cache-serializers').MedeaDbSerializer;
 var mkdirp = require('mkdirp');
 var Promise = require('bluebird');
 var rimraf = require('rimraf');
@@ -331,7 +331,7 @@ exports.itCompilesWithCache = function(name, fixturePath, fnA, fnB, expectHandle
       // return new Promise(function(resolve) {setTimeout(resolve, 1000);});
     })
     .then(function() {
-      var serializer = new LevelDbSerializer({
+      var serializer = new MedeaDbSerializer({
         cacheDirPath: path.join(__dirname, '../', 'fixtures', fixturePath, 'tmp/cache/md5')
       });
       return serializer.read().then(function(_cache) { cache1 = _cache; });
@@ -346,7 +346,7 @@ exports.itCompilesWithCache = function(name, fixturePath, fnA, fnB, expectHandle
       // return new Promise(function(resolve) {setTimeout(resolve, 1000);});
     })
     .then(function() {
-      var serializer = new LevelDbSerializer({
+      var serializer = new MedeaDbSerializer({
         cacheDirPath: path.join(__dirname, '../', 'fixtures', fixturePath, 'tmp/cache/md5')
       });
       return serializer.read().then(function(_cache) { cache2 = _cache; });
